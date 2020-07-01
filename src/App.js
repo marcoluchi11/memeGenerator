@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
 import "./bootstrap.min.css";
+import "./components/fetching.css";
 //import Fetching from "./components/Fetching";
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
       ],
     },
   });
-
+  const [clickeado, setClickeado] = useState(false);
+  const [id, setid] = useState({});
+  const [url, setUrl] = useState({});
   useEffect(() => {
     const traerDatos = async () => {
       const response = await fetch("https://api.imgflip.com/get_memes");
@@ -42,18 +45,38 @@ function App() {
       const dato = await rta.json();
       console.log(dato);
     };
-    GeneradorMeme();
+    // GeneradorMeme();
     traerDatos();
   }, []);
+  const filtrarArreglo = () => {
+    const filtrado = memeGenerator.data.memes.filter(
+      (meme) => meme.url === url
+    );
+    return filtrado;
+  };
 
-  console.log(memeGenerator.data.memes);
   return (
     <Fragment>
-      <div className="container-fluid">
-        {memeGenerator.data.memes.map((meme) => (
-          <Fetching key={meme.id} linkImagen={meme} />
-        ))}
-        <button className="btn btn-primary">Tu vieja</button>
+      <div className="container centrado">
+        <h1>Crea tu meme</h1>
+        {clickeado ? (
+          <Fetching
+            linkImagen={filtrarArreglo()}
+            setClickeado={setClickeado}
+            clickeado={clickeado}
+          />
+        ) : (
+          memeGenerator.data.memes.map((meme) => (
+            <Fetching
+              key={meme.id}
+              linkImagen={meme}
+              setid={setid}
+              setUrl={setUrl}
+              setClickeado={setClickeado}
+              clickeado={clickeado}
+            />
+          ))
+        )}
       </div>
     </Fragment>
   );
