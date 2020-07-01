@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
-
+import "./bootstrap.min.css";
 //import Fetching from "./components/Fetching";
 
 function App() {
@@ -49,9 +49,12 @@ function App() {
   console.log(memeGenerator.data.memes);
   return (
     <Fragment>
-      {memeGenerator.data.memes.map((meme) => (
-        <Fetching key={meme.id} linkImagen={meme} />
-      ))}
+      <div className="container-fluid">
+        {memeGenerator.data.memes.map((meme) => (
+          <Fetching key={meme.id} linkImagen={meme} />
+        ))}
+        <button className="btn btn-primary">Tu vieja</button>
+      </div>
     </Fragment>
   );
 }
