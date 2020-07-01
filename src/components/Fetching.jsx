@@ -1,17 +1,20 @@
 import React, { Fragment } from "react";
 import Formulario from "./Formulario";
 import "./fetching.css";
+import shortid from "shortid";
 const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
   let { id, url, box_count } = linkImagen;
 
   const construirArray = (box) => {
+    console.log(box);
     let arr = [];
     let pusher = 0;
     for (let i = 0; i < box; i++) {
+      console.log(`entra aca ${i} veces`);
       arr.push(pusher);
       pusher++;
     }
-    console.log(arr);
+    return arr;
   };
 
   const clickMeme = (identifier) => {
@@ -31,10 +34,14 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
                 src={linkImagen[0].url}
                 alt={linkImagen[0].id}
               />
-
-              <form>{construirArray(box_count)}</form>
             </div>
-
+            <div className="col-12 mb-5">
+              <form>
+                {construirArray(linkImagen[0].box_count).map(() => (
+                  <Formulario key={shortid.generate()} />
+                ))}
+              </form>
+            </div>
             <div className="col-12">
               <button
                 className="btn btn-primary"
