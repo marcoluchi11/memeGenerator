@@ -34,22 +34,7 @@ function App() {
       console.log(jotason);
       setMemes(jotason);
     };
-    const GeneradorMeme = async () => {
-      var form = new FormData();
-      form.append("template_id", "181913649");
-      form.append("username", "marcoluchi11");
-      form.append("password", "eduardo11");
-      form.append("text1", "tu mama");
-      form.append("text0", "quasd tira la goma tu senora");
-      const request = {
-        method: "POST",
 
-        body: form,
-      };
-      const rta = await fetch("https://api.imgflip.com/caption_image", request);
-      const dato = await rta.json();
-      console.log(dato);
-    };
     // GeneradorMeme();
     traerDatos();
   }, []);
