@@ -3,18 +3,7 @@ import Formulario from "./Formulario";
 import "./fetching.css";
 import shortid from "shortid";
 const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
-  let { id, url, box_count } = linkImagen;
-
-  const construirArray = (box) => {
-    console.log(box);
-    let arr = [];
-    let pusher = 0;
-    for (let i = 0; i < box; i++) {
-      arr.push(pusher);
-      pusher++;
-    }
-    return arr;
-  };
+  let { id, url } = linkImagen;
 
   const clickMeme = (identifier) => {
     console.log(identifier);
@@ -35,20 +24,7 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
               />
             </div>
             <div className="col-12 mb-5">
-              <form>
-                {construirArray(linkImagen[0].box_count).map(() => (
-                  <Formulario key={shortid.generate()} />
-                ))}
-              </form>
-            </div>
-            <div className="col-12">
-              <button
-                className="btn btn-primary"
-                onClick={() => setClickeado(false)}
-              >
-                Atras
-              </button>
-              <button className="btn btn-success ml-3">Confirmar</button>
+              <Formulario id={linkImagen[0].id} setClickeado={setClickeado} />
             </div>
           </div>
         </Fragment>
