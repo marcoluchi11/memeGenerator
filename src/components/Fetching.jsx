@@ -10,7 +10,6 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
     let arr = [];
     let pusher = 0;
     for (let i = 0; i < box; i++) {
-      console.log(`entra aca ${i} veces`);
       arr.push(pusher);
       pusher++;
     }
