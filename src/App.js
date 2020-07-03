@@ -3,7 +3,6 @@ import Fetching from "./components/Fetching";
 import "./App.css";
 import "./bootstrap.min.css";
 import "./components/fetching.css";
-//import Fetching from "./components/Fetching";
 
 function App() {
   const [memeGenerator, setMemes] = useState({
@@ -27,6 +26,12 @@ function App() {
     const traerDatos = async () => {
       const response = await fetch("https://api.imgflip.com/get_memes");
       const jotason = await response.json();
+      const jotason2 = jotason.data.memes.filter(
+        (meme) => meme.box_count === 2
+      );
+
+      jotason.data.memes = jotason2;
+      console.log(jotason);
       setMemes(jotason);
     };
     const GeneradorMeme = async () => {
@@ -35,7 +40,7 @@ function App() {
       form.append("username", "marcoluchi11");
       form.append("password", "eduardo11");
       form.append("text1", "tu mama");
-      form.append("text0", "que bien tira la goma tu senora");
+      form.append("text0", "quasd tira la goma tu senora");
       const request = {
         method: "POST",
 
