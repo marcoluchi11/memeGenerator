@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
-import Memecreado from "./Memecreado";
-const Formulario = ({ setClickeado, id }) => {
+
+const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
   const [texto, setTexto] = useState({ texto1: "", texto2: "" });
-  const [memeCreado, setMemeCreado] = useState("");
+
   const crearMeme = async (e) => {
     e.preventDefault();
     var form = new FormData();
@@ -18,7 +18,7 @@ const Formulario = ({ setClickeado, id }) => {
     const rta = await fetch("https://api.imgflip.com/caption_image", request);
     const dato = await rta.json();
     setMemeCreado(dato.data.url);
-
+    setClickSubmit(false);
     setTexto({
       texto1: "",
       texto2: "",
@@ -42,7 +42,7 @@ const Formulario = ({ setClickeado, id }) => {
           type="text"
           placeholder="Coloca el texto1 aqui"
         />
-        <Memecreado meme={memeCreado} />
+        {/* <Memecreado meme={memeCreado} /> */}
         <div className="col-12">
           <button
             className="btn btn-primary"
