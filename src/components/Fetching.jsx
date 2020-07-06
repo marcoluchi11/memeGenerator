@@ -15,8 +15,8 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
     <Fragment>
       {clickeado ? (
         <Fragment>
-          <div className="row">
-            <div className="col-12 mb-5">
+          <div className="row d-flex justify-content-center">
+            <div className="col-12 mb-5 d-flex flex-wrap justify-content-center">
               {clickSubmit ? (
                 <img
                   className="seleccionada"
@@ -24,10 +24,14 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
                   alt={linkImagen[0].id}
                 />
               ) : (
-                <Memecreado meme={memeCreado} />
+                <Fragment>
+                  <Memecreado meme={memeCreado} />
+
+                  <h4>Listo aca tenes tu meme!</h4>
+                </Fragment>
               )}
             </div>
-            <div className="col-12 mb-5">
+            <div>
               <Formulario
                 setMemeCreado={setMemeCreado}
                 setClickSubmit={setClickSubmit}
@@ -38,14 +42,16 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
           </div>
         </Fragment>
       ) : (
-        <img
-          className="imagenesjuntas"
-          onClick={() => {
-            clickMeme(id);
-          }}
-          src={url}
-          alt={id}
-        />
+        <div className="row d-flex justify-content-center">
+          <img
+            className="imagenesjuntas"
+            onClick={() => {
+              clickMeme(id);
+            }}
+            src={url}
+            alt={id}
+          />
+        </div>
       )}
     </Fragment>
   );
