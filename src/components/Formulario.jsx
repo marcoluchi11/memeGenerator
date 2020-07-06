@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-
+import "./Formulario.css";
 const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
   const [texto, setTexto] = useState({ texto1: "", texto2: "" });
 
@@ -30,20 +30,21 @@ const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
   return (
     <Fragment>
       <form onSubmit={crearMeme}>
-        <input
-          onChange={handleChange}
-          name="texto2"
-          type="text"
-          placeholder="Coloca el texto2 aqui"
-        />
-        <input
-          onChange={handleChange}
-          name="texto1"
-          type="text"
-          placeholder="Coloca el texto1 aqui"
-        />
-        {/* <Memecreado meme={memeCreado} /> */}
-        <div className="col-12">
+        <div className="col-12 d-flex justify-content-around">
+          <input
+            onChange={handleChange}
+            name="texto1"
+            type="text"
+            placeholder="Coloca el texto1 aqui"
+          />
+          <input
+            onChange={handleChange}
+            name="texto2"
+            type="text"
+            placeholder="Coloca el texto2 aqui"
+          />
+        </div>
+        <div className="col-12 d-flex justify-content-center mt-3">
           <button
             className="btn btn-primary"
             onClick={() => setClickeado(false)}
