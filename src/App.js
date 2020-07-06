@@ -1,9 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
 import "./bootstrap.min.css";
 import "./components/fetching.css";
-
+import Footer from "./components/Footer";
+import header from "./header.png";
 function App() {
   const [memeGenerator, setMemes] = useState({
     data: {
@@ -21,6 +22,7 @@ function App() {
   });
   const [clickeado, setClickeado] = useState(false);
   const [id, setid] = useState({});
+  console.log(id);
   const [url, setUrl] = useState({});
   useEffect(() => {
     const traerDatos = async () => {
@@ -46,9 +48,16 @@ function App() {
   };
 
   return (
-    <Fragment>
-      <div className="container centrado">
-        <h1>Crea tu meme</h1>
+    <div className="container">
+      <header>
+        <img id="encabezado" src={header} alt="" />
+      </header>
+      {clickeado ? (
+        <h5>Edita el meme a tu gusto</h5>
+      ) : (
+        <h5>Selecciona el meme que quieras editar</h5>
+      )}
+      <div className="row d-flex justify-content-center">
         {clickeado ? (
           <Fetching
             linkImagen={filtrarArreglo()}
@@ -68,7 +77,8 @@ function App() {
           ))
         )}
       </div>
-    </Fragment>
+      <Footer clickeado={clickeado} />
+    </div>
   );
 }
 
