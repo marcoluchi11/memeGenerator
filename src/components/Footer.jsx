@@ -3,7 +3,7 @@ import React from "react";
 const Footer = ({ clickeado }) => {
   let clase;
   if (clickeado) {
-    clase = "d-flex mt-5 justify-content-center fixed-bottom";
+    clase = "d-flex mt-5 justify-content-center";
   } else {
     clase = "d-flex mt-5 justify-content-center ";
   }

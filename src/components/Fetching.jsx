@@ -27,7 +27,7 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
                 <Fragment>
                   <Memecreado meme={memeCreado} />
 
-                  <h4>Listo aca tenes tu meme!</h4>
+                  <h4 className="mt-3">Listo aca tenes tu meme!</h4>
                 </Fragment>
               )}
             </div>

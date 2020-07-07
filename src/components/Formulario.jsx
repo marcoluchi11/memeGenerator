@@ -35,12 +35,14 @@ const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
             onChange={handleChange}
             name="texto1"
             type="text"
+            value={texto.texto1}
             placeholder="Coloca el texto1 aqui"
           />
           <input
             onChange={handleChange}
             name="texto2"
             type="text"
+            value={texto.texto2}
             placeholder="Coloca el texto2 aqui"
           />
         </div>

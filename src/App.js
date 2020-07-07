@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
 import "./bootstrap.min.css";
@@ -48,37 +48,39 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <header>
-        <img id="encabezado" src={header} alt="" />
-      </header>
-      {clickeado ? (
-        <h5>Edita el meme a tu gusto</h5>
-      ) : (
-        <h5>Selecciona el meme que quieras editar</h5>
-      )}
-      <div className="row d-flex justify-content-center">
+    <Fragment>
+      <div className="container">
+        <header>
+          <img id="encabezado" src={header} alt="" />
+        </header>
         {clickeado ? (
-          <Fetching
-            linkImagen={filtrarArreglo()}
-            setClickeado={setClickeado}
-            clickeado={clickeado}
-          />
+          <h5 className="mt-3">Edita el meme a tu gusto</h5>
         ) : (
-          memeGenerator.data.memes.map((meme) => (
+          <h5 className="mt-3">Selecciona el meme que quieras editar</h5>
+        )}
+        <div className="row d-flex justify-content-center">
+          {clickeado ? (
             <Fetching
-              key={meme.id}
-              linkImagen={meme}
-              setid={setid}
-              setUrl={setUrl}
+              linkImagen={filtrarArreglo()}
               setClickeado={setClickeado}
               clickeado={clickeado}
             />
-          ))
-        )}
+          ) : (
+            memeGenerator.data.memes.map((meme) => (
+              <Fetching
+                key={meme.id}
+                linkImagen={meme}
+                setid={setid}
+                setUrl={setUrl}
+                setClickeado={setClickeado}
+                clickeado={clickeado}
+              />
+            ))
+          )}
+        </div>
       </div>
       <Footer clickeado={clickeado} />
-    </div>
+    </Fragment>
   );
 }
 
