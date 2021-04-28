@@ -9,8 +9,8 @@ const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
     form.append("template_id", id);
     form.append("username", "marcoluchi11");
     form.append("password", "eduardo11");
-    form.append("text1", texto.texto1);
-    form.append("text0", texto.texto2);
+    form.append("text0", texto.texto1);
+    form.append("text1", texto.texto2);
     const request = {
       method: "POST",
       body: form,
