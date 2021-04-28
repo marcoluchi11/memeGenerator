@@ -22,7 +22,6 @@ function App() {
   });
   const [clickeado, setClickeado] = useState(false);
   const [id, setid] = useState({});
-  console.log(id);
   const [url, setUrl] = useState({});
   useEffect(() => {
     const traerDatos = async () => {
@@ -50,13 +49,10 @@ function App() {
   return (
     <Fragment>
       <div className="container">
-        <header>
-          <img id="encabezado" src={header} alt="" />
-        </header>
         {clickeado ? (
-          <h5 className="mt-3">Edita el meme a tu gusto</h5>
+          <h3 className="mt-3">Crea el meme a tu gusto</h3>
         ) : (
-          <h5 className="mt-3">Selecciona el meme que quieras editar</h5>
+          <h3 className="mt-3">Seleccioná el meme que quieras crear</h3>
         )}
         <div className="row d-flex justify-content-center">
           {clickeado ? (
@@ -79,6 +75,8 @@ function App() {
           )}
         </div>
       </div>
+
+      <hr />
       <Footer clickeado={clickeado} />
     </Fragment>
   );
