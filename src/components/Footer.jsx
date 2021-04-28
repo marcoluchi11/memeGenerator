@@ -19,7 +19,6 @@ const Footer = ({ clickeado }) => {
           src="https://cdn.cafecito.app/imgs/buttons/button_4.png"
           alt="Invitame un café en cafecito.app"
         />
-        &copy; - 2020
       </a>
     </footer>
   );
