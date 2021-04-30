@@ -1,4 +1,6 @@
 footer {
+  height: 50px;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
 }
