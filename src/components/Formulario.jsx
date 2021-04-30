@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import "./Formulario.css";
 const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
   const [texto, setTexto] = useState({ texto1: "", texto2: "" });
@@ -28,37 +28,30 @@ const Formulario = ({ setClickeado, id, setClickSubmit, setMemeCreado }) => {
     setTexto({ ...texto, [e.target.name]: e.target.value });
   };
   return (
-    <Fragment>
-      <form onSubmit={crearMeme}>
-        <div className="col-12 d-flex justify-content-around">
-          <input
-            onChange={handleChange}
-            name="texto1"
-            type="text"
-            value={texto.texto1}
-            placeholder="Coloca el texto1 aqui"
-          />
-          <input
-            onChange={handleChange}
-            name="texto2"
-            type="text"
-            value={texto.texto2}
-            placeholder="Coloca el texto2 aqui"
-          />
-        </div>
-        <div className="col-12 d-flex justify-content-center mt-3">
-          <button
-            className="btn btn-primary"
-            onClick={() => setClickeado(false)}
-          >
-            Atras
-          </button>
-          <button type="submit" className="btn btn-success ml-3">
-            Confirmar
-          </button>
-        </div>
-      </form>
-    </Fragment>
+    <form onSubmit={crearMeme}>
+      <div>
+        <input
+          onChange={handleChange}
+          name="texto1"
+          type="text"
+          value={texto.texto1}
+          placeholder="Coloca el texto1 aqui"
+        />
+        <input
+          onChange={handleChange}
+          name="texto2"
+          type="text"
+          value={texto.texto2}
+          placeholder="Coloca el texto2 aqui"
+        />
+      </div>
+      <div>
+        <button className="btn btn-primary" onClick={() => setClickeado(false)}>
+          Atras
+        </button>
+        <button type="submit">Confirmar</button>
+      </div>
+    </form>
   );
 };
 

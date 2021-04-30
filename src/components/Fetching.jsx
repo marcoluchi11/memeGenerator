@@ -3,7 +3,7 @@ import Formulario from "./Formulario";
 import "./fetching.css";
 import Memecreado from "./Memecreado";
 const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
-  let { id, url } = linkImagen;
+  let { id, url, name } = linkImagen;
   const [clickSubmit, setClickSubmit] = useState(true);
   const [memeCreado, setMemeCreado] = useState("");
   const clickMeme = (identifier) => {
@@ -15,11 +15,11 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
     <Fragment>
       {clickeado ? (
         <Fragment>
-          <div className="row d-flex justify-content-center">
-            <div className="col-12 mb-5 d-flex flex-wrap justify-content-center">
+          <div>
+            <div>
               {clickSubmit ? (
                 <img
-                  className="seleccionada"
+                  className=""
                   src={linkImagen[0].url}
                   alt={linkImagen[0].id}
                 />
@@ -27,7 +27,7 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
                 <Fragment>
                   <Memecreado meme={memeCreado} />
 
-                  <h4 className="mt-3">Listo aca tenes tu meme!</h4>
+                  <h4>Listo, acá tenés tu meme!</h4>
                 </Fragment>
               )}
             </div>
@@ -42,15 +42,14 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
           </div>
         </Fragment>
       ) : (
-        <div className="row d-flex justify-content-center">
-          <img
-            className="imagenesjuntas"
-            onClick={() => {
-              clickMeme(id);
-            }}
-            src={url}
-            alt={id}
-          />
+        <div
+          className="card"
+          onClick={() => {
+            clickMeme(id);
+          }}
+        >
+          <img src={url} alt={id} />
+          <h3>{name}</h3>
         </div>
       )}
     </Fragment>
