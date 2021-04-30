@@ -1,14 +1,8 @@
 import React from "react";
-
-const Footer = ({ clickeado }) => {
-  let clase;
-  if (clickeado) {
-    clase = "d-flex mt-5 justify-content-center";
-  } else {
-    clase = "d-flex mt-5 justify-content-center ";
-  }
+import "./Footer.css";
+const Footer = () => {
   return (
-    <footer className={clase}>
+    <footer>
       <a
         href="https://cafecito.app/marcoluchi11"
         rel="noopener noreferrer"
