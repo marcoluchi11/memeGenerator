@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
 import Footer from "./components/Footer";

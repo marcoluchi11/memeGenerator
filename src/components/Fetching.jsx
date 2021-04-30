@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Formulario from "./Formulario";
-import "./fetching.css";
+import "./Fetching.css";
 import Memecreado from "./Memecreado";
 const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
   let { id, url, name } = linkImagen;
@@ -18,26 +18,24 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
           <div>
             <div>
               {clickSubmit ? (
-                <img
-                  className=""
-                  src={linkImagen[0].url}
-                  alt={linkImagen[0].id}
-                />
+                <div className="meme-elegido">
+                  <img src={linkImagen[0].url} alt={linkImagen[0].id} />
+                </div>
               ) : (
                 <Fragment>
-                  <Memecreado meme={memeCreado} />
-
-                  <h4>Listo, acá tenés tu meme!</h4>
+                  <Memecreado setClickeado={setClickeado} meme={memeCreado} />
                 </Fragment>
               )}
             </div>
             <div>
-              <Formulario
-                setMemeCreado={setMemeCreado}
-                setClickSubmit={setClickSubmit}
-                id={linkImagen[0].id}
-                setClickeado={setClickeado}
-              />
+              {clickSubmit ? (
+                <Formulario
+                  setMemeCreado={setMemeCreado}
+                  setClickSubmit={setClickSubmit}
+                  id={linkImagen[0].id}
+                  setClickeado={setClickeado}
+                />
+              ) : null}
             </div>
           </div>
         </Fragment>
