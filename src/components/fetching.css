@@ -30,3 +30,11 @@ h3 {
   margin: 0;
   padding: 0.5rem;
 }
+.meme-elegido {
+  display: flex;
+  justify-content: center;
+}
+.meme-elegido img {
+  width: 20rem !important;
+  height: 20rem !important;
+}

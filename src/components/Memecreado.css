@@ -1,0 +1,28 @@
+.meme-creado {
+  display: flex;
+  justify-content: center;
+}
+.meme-creado h4 {
+  align-self: center;
+  font-size: 1.4rem;
+}
+.meme-creado img {
+  width: 20rem !important;
+  height: 20rem !important;
+}
+.meme-creado button {
+  outline: 0;
+  border: 2px solid #1e1420;
+  background: none;
+  margin: 25px;
+  padding: 10px 35px;
+  font-size: 15px;
+  color: #1e1420;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+.meme-creado button:hover {
+  background-color: #1e1420;
+  color: #fff;
+}
