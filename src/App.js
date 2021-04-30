@@ -1,10 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Fetching from "./components/Fetching";
 import "./App.css";
-import "./bootstrap.min.css";
-import "./components/fetching.css";
 import Footer from "./components/Footer";
-import header from "./header.png";
 function App() {
   const [memeGenerator, setMemes] = useState({
     data: {
@@ -32,7 +29,6 @@ function App() {
       );
 
       jotason.data.memes = jotason2;
-      console.log(jotason);
       setMemes(jotason);
     };
 
@@ -47,38 +43,36 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <div>
+      {clickeado ? (
+        <h1>Crea el meme a tu gusto</h1>
+      ) : (
+        <h1>Seleccioná el meme que quieras crear</h1>
+      )}
       <div className="container">
         {clickeado ? (
-          <h3 className="mt-3">Crea el meme a tu gusto</h3>
+          <Fetching
+            linkImagen={filtrarArreglo()}
+            setClickeado={setClickeado}
+            clickeado={clickeado}
+          />
         ) : (
-          <h3 className="mt-3">Seleccioná el meme que quieras crear</h3>
-        )}
-        <div className="row d-flex justify-content-center">
-          {clickeado ? (
+          memeGenerator.data.memes.map((meme) => (
             <Fetching
-              linkImagen={filtrarArreglo()}
+              key={meme.id}
+              linkImagen={meme}
+              setid={setid}
+              setUrl={setUrl}
               setClickeado={setClickeado}
               clickeado={clickeado}
             />
-          ) : (
-            memeGenerator.data.memes.map((meme) => (
-              <Fetching
-                key={meme.id}
-                linkImagen={meme}
-                setid={setid}
-                setUrl={setUrl}
-                setClickeado={setClickeado}
-                clickeado={clickeado}
-              />
-            ))
-          )}
-        </div>
+          ))
+        )}
       </div>
 
       <hr />
       <Footer clickeado={clickeado} />
-    </Fragment>
+    </div>
   );
 }
 
