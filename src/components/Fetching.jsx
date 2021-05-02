@@ -18,7 +18,7 @@ const Fetching = ({ linkImagen, setClickeado, setid, clickeado, setUrl }) => {
           <div>
             <div>
               {clickSubmit ? (
-                <div className="meme-elegido">
+                <div id="meme-elegido">
                   <img src={linkImagen[0].url} alt={linkImagen[0].id} />
                 </div>
               ) : (
