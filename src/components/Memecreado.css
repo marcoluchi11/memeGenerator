@@ -2,15 +2,28 @@
   display: flex;
   justify-content: center;
 }
-.meme-creado h4 {
+@media all and (min-width: 300px) {
+  #meme-creado {
+    flex-direction: column;
+  }
+  #meme-creado img {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
+  #meme-creado h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+#meme-creado h4 {
   align-self: center;
   font-size: 1.4rem;
 }
-.meme-creado img {
-  width: 20rem !important;
-  height: 20rem !important;
+#meme-creado img {
+  width: 20rem;
+  height: 20rem;
 }
-.meme-creado button {
+#meme-creado button {
   outline: 0;
   border: 2px solid #1e1420;
   background: none;
