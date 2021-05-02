@@ -19,6 +19,7 @@ function App() {
   });
   const [clickeado, setClickeado] = useState(false);
   const [id, setid] = useState({});
+  console.log(id);
   const [url, setUrl] = useState({});
   useEffect(() => {
     const traerDatos = async () => {
